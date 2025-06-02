@@ -14,7 +14,7 @@
 # Build and output directories
 /build/
 /out/
-/target/
+
 /appium/
 /.idea/
 
