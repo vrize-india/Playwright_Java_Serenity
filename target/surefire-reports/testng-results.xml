@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="1" failed="2" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-06-02T23:13:55 AEST" name="Surefire suite" finished-at="2025-06-02T23:14:29 AEST" duration-ms="34021">
+    <groups>
+    </groups>
+    <test started-at="2025-06-02T23:13:55 AEST" name="Surefire test" finished-at="2025-06-02T23:14:29 AEST" duration-ms="34021">
+      <class name="com.tonic.healthCheckTestngTests.web.LoginTest">
+        <test-method is-config="true" signature="setUpPlatform(java.lang.String)[pri:0, instance:com.tonic.healthCheckTestngTests.web.LoginTest@5b275174]" started-at="2025-06-02T23:13:55 AEST" name="setUpPlatform" finished-at="2025-06-02T23:13:55 AEST" duration-ms="15" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[web]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpPlatform -->
+        <test-method is-config="true" signature="setupReport()[pri:0, instance:com.tonic.healthCheckTestngTests.web.LoginTest@5b275174]" started-at="2025-06-02T23:13:55 AEST" name="setupReport" finished-at="2025-06-02T23:13:55 AEST" duration-ms="3" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupReport -->
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.tonic.healthCheckTestngTests.web.LoginTest@5b275174]" started-at="2025-06-02T23:13:55 AEST" name="setup" finished-at="2025-06-02T23:13:55 AEST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method is-config="true" signature="setupMethod()[pri:0, instance:com.tonic.healthCheckTestngTests.web.LoginTest@5b275174]" started-at="2025-06-02T23:13:55 AEST" name="setupMethod" finished-at="2025-06-02T23:14:01 AEST" duration-ms="6473" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupMethod -->
+        <test-method signature="loginWithValidCredentials()[pri:1, instance:com.tonic.healthCheckTestngTests.web.LoginTest@5b275174]" started-at="2025-06-02T23:14:01 AEST" name="loginWithValidCredentials" description="Verify user can login with valid credentials" finished-at="2025-06-02T23:14:06 AEST" duration-ms="4581" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginWithValidCredentials -->
+        <test-method is-config="true" signature="tearDownMethod()[pri:0, instance:com.tonic.healthCheckTestngTests.web.LoginTest@5b275174]" started-at="2025-06-02T23:14:06 AEST" name="tearDownMethod" finished-at="2025-06-02T23:14:06 AEST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownMethod -->
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.tonic.healthCheckTestngTests.web.LoginTest@5b275174]" started-at="2025-06-02T23:14:06 AEST" name="setup" finished-at="2025-06-02T23:14:06 AEST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method is-config="true" signature="setupMethod()[pri:0, instance:com.tonic.healthCheckTestngTests.web.LoginTest@5b275174]" started-at="2025-06-02T23:14:06 AEST" name="setupMethod" finished-at="2025-06-02T23:14:12 AEST" duration-ms="5663" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupMethod -->
+        <test-method signature="navigateToTerminalsPage()[pri:2, instance:com.tonic.healthCheckTestngTests.web.LoginTest@5b275174]" started-at="2025-06-02T23:14:12 AEST" name="navigateToTerminalsPage" description="Verify user is able to navigate to terminal" finished-at="2025-06-02T23:14:16 AEST" duration-ms="4355" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at org.testng.Assert.assertTrue(Assert.java:67)
+at com.tonic.healthCheckTestngTests.web.LoginTest.navigateToTerminalsPage(LoginTest.java:80)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:102)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:91)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- navigateToTerminalsPage -->
+        <test-method is-config="true" signature="tearDownMethod()[pri:0, instance:com.tonic.healthCheckTestngTests.web.LoginTest@5b275174]" started-at="2025-06-02T23:14:16 AEST" name="tearDownMethod" finished-at="2025-06-02T23:14:16 AEST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownMethod -->
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.tonic.healthCheckTestngTests.web.LoginTest@5b275174]" started-at="2025-06-02T23:14:16 AEST" name="setup" finished-at="2025-06-02T23:14:16 AEST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method is-config="true" signature="setupMethod()[pri:0, instance:com.tonic.healthCheckTestngTests.web.LoginTest@5b275174]" started-at="2025-06-02T23:14:16 AEST" name="setupMethod" finished-at="2025-06-02T23:14:21 AEST" duration-ms="4865" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupMethod -->
+        <test-method signature="openAddTerminalDialog()[pri:3, instance:com.tonic.healthCheckTestngTests.web.LoginTest@5b275174]" started-at="2025-06-02T23:14:21 AEST" name="openAddTerminalDialog" description="Verify user is able to add terminal" finished-at="2025-06-02T23:14:28 AEST" duration-ms="7487" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at org.testng.Assert.assertTrue(Assert.java:67)
+at com.tonic.healthCheckTestngTests.web.LoginTest.openAddTerminalDialog(LoginTest.java:110)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:102)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:91)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openAddTerminalDialog -->
+        <test-method is-config="true" signature="tearDownMethod()[pri:0, instance:com.tonic.healthCheckTestngTests.web.LoginTest@5b275174]" started-at="2025-06-02T23:14:28 AEST" name="tearDownMethod" finished-at="2025-06-02T23:14:28 AEST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownMethod -->
+        <test-method is-config="true" signature="tearDownReport()[pri:0, instance:com.tonic.healthCheckTestngTests.web.LoginTest@5b275174]" started-at="2025-06-02T23:14:28 AEST" name="tearDownReport" finished-at="2025-06-02T23:14:29 AEST" duration-ms="402" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownReport -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tonic.healthCheckTestngTests.web.LoginTest@5b275174]" started-at="2025-06-02T23:14:29 AEST" name="tearDown" finished-at="2025-06-02T23:14:29 AEST" duration-ms="93" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.tonic.healthCheckTestngTests.web.LoginTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>
