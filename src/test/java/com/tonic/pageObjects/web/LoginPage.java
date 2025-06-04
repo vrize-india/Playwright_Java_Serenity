@@ -41,4 +41,16 @@ public class LoginPage {
 			return false;
 		}
 	}
+
+	public void navigateToLogin() {
+		page.navigate("https://admin.test.ordyx.com/login");
+	}
+
+	public void login(String username, String password) {
+		page.fill(emailId, username);
+		page.fill(this.password, password);
+		page.click(loginBtn);
+		// Wait for dashboard to load (Configuration menu visible)
+		page.locator("text=Configuration").waitFor();
+	}
 }
