@@ -25,9 +25,7 @@ This project is a Test Automation Framework built with **Playwright Java**, **Se
 ## Setup
 
 1. **Clone the repository**
-2. **Install dependencies:**
-   ```bash
-   mvn clean install
+2. **Install dependencies
    ```
 3. **Install Allure command line tool (if not already installed):**
    ```bash

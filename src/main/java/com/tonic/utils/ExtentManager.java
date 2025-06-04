@@ -1,7 +1,6 @@
 package com.tonic.utils;
 
 import com.aventstack.extentreports.ExtentTest;
-
 import java.util.Objects;
 
 public class ExtentManager {
@@ -23,4 +22,4 @@ public class ExtentManager {
     static void unload() {
         extTest.remove();
     }
-}
+} 

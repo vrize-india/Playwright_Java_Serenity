@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Serenity BDD Composite Suite" verbose="1" parallel="tests" thread-count="2">
-	<test name="Login Test">
+<suite name="Tonic BOH Test Suite" verbose="1">
+	<test name="Edit User Role Test">
+		<parameter name="browser" value="chrome"/>
 		<classes>
-			<class name="com.tonic.runners.LoginTestRunner"/>
-		</classes>
-	</test>
-
-	<test name="Terminal Navigation Test">
-		<classes>
-			<class name="com.tonic.runners.TerminalNavigationTestRunner"/>
+			<class name="com.tonic.healthCheckTestngTests.web.RolesTest">
+				<methods>
+					<include name="editUserRoleHourlyWages"/>
+				</methods>
+			</class>
 		</classes>
 	</test>
 </suite>
