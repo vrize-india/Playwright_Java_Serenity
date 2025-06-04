@@ -36,3 +36,4 @@ Thumbs.db
 
 # Git should track this file
 !.gitignore
+/target/

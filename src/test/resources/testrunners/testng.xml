@@ -4,13 +4,13 @@
 <suite name="Serenity BDD Composite Suite" verbose="1" parallel="tests" thread-count="2">
 	<test name="Login Test">
 		<classes>
-			<class name="com.tonic.runners.LoginTestRunner"/>
+			<class name="com.tonic.runners.TestRunner"/>
 		</classes>
 	</test>
 
 	<test name="Terminal Navigation Test">
 		<classes>
-			<class name="com.tonic.runners.TerminalNavigationTestRunner"/>
+			<class name="com.tonic.runners.TestRunner"/>
 		</classes>
 	</test>
 </suite>
