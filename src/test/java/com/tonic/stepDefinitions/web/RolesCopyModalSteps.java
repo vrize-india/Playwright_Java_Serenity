@@ -23,16 +23,6 @@ public class RolesCopyModalSteps {
     private AdminDashboardPage adminDashboardPage;
     private ConfigurationPage configurationPage;
 
-    @Given("user login {string} with credentials: {string} and {string}")
-    public void user_login(String url, String username, String password) {
-        page = PlaywrightFactory.getPage();
-        loginPage = new LoginPage(page);
-        loginPage.navigateToLogin();
-        loginPage.login(username, password);
-        adminDashboardPage = new AdminDashboardPage(page);
-        Assert.assertTrue("Dashboard not loaded after login", adminDashboardPage.isDashboardLoaded());
-    }
-
     @When("the user is on the modal screen with a duplicate icon")
     public void user_on_modal_screen_with_duplicate_icon() {
         adminDashboardPage.goToConfiguration();

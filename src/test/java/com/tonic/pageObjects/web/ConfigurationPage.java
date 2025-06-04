@@ -58,8 +58,16 @@ public class ConfigurationPage {
     }
 
     public boolean isDuplicateIconNextToCloseButton() {
-        // TODO: Implement logic to check if the duplicate icon is next to the close button in the modal
-        // This may require a more specific selector or DOM structure check
-        return true; // Placeholder for now
+        // Locate the container div
+        var container = page.locator("div.justify-content-center.buttons-column-data");
+        // Get all buttons inside the container
+        var buttons = container.locator("button");
+        // There should be at least two buttons: [0]=copy, [1]=close
+        if (buttons.count() < 2) return false;
+        // Check the first button contains the copy icon
+        boolean copyIconPresent = buttons.nth(0).locator("svg.svg-copy-icon-dims").count() > 0;
+        // Check the second button contains the close icon
+        boolean closeIconPresent = buttons.nth(1).locator("svg.svg-close-icon-xmark-dims").count() > 0;
+        return copyIconPresent && closeIconPresent;
     }
 } 

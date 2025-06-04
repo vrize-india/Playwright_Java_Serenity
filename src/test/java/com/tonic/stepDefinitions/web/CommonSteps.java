@@ -44,4 +44,14 @@ public class CommonSteps {
         String screenshot = PlaywrightFactory.takeScreenshot();
         Assert.assertTrue(terminalsPage.isTerminalsPageVisible());
     }
+
+    @Given("user login {string} with credentials: {string} and {string}")
+    public void user_login(String url, String username, String password) {
+        Page page = PlaywrightFactory.getPage();
+        LoginPage loginPage = new LoginPage(page);
+        loginPage.navigateToLogin();
+        loginPage.login(username, password);
+        AdminDashboardPage adminDashboardPage = new AdminDashboardPage(page);
+        Assert.assertTrue("Dashboard not loaded after login", adminDashboardPage.isDashboardLoaded());
+    }
 } 
