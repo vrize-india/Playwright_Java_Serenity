@@ -3,7 +3,7 @@ Feature: Roles Management
   I want to manage user roles and their hourly wages
   So that I can maintain accurate compensation information
 
-  @086
+  @TONIC-7228 @labor
   Scenario: Edit user role hourly wages
     Given user login "https://admin.test.ordyx.com/login" with credentials: "Prasanna@vrize.com" and "Password@123"
     And I am on the Roles page
