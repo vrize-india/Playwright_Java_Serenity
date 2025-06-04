@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
-<suite name="Serenity BDD Composite Suite" verbose="1" parallel="tests" thread-count="2">
-	<test name="Login Test">
+<suite name="Parallel Cucumber Suite" parallel="tests" thread-count="2">
+	<test name="RolesCopyModal">
+		<parameter name="cucumberTags" value="@RolesCopyModal"/>
 		<classes>
 			<class name="com.tonic.runners.TestRunner"/>
 		</classes>
 	</test>
-
-	<test name="Terminal Navigation Test">
+	<test name="TONIC6653">
+		<parameter name="cucumberTags" value="@TONIC6653"/>
 		<classes>
 			<class name="com.tonic.runners.TestRunner"/>
 		</classes>
