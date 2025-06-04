@@ -46,14 +46,17 @@ public class ConfigurationPage {
     }
 
     public boolean isStoreNameFieldVisible() {
+        page.locator(storeNameField).waitFor();
         return page.locator(storeNameField).isVisible();
     }
 
     public boolean isInheritPermissionsFieldVisible() {
+        page.locator(inheritPermissionsField).waitFor();
         return page.locator(inheritPermissionsField).isVisible();
     }
 
     public boolean isSelectComboboxVisible() {
+        page.locator("[role=combobox],select").locator("text=Select").first().waitFor();
         return page.locator("[role=combobox],select").locator("text=Select").first().isVisible();
     }
 
