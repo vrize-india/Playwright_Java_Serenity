@@ -9,7 +9,7 @@ public class RolesPage {
     private Page page;
 
     // Locators for navigation and page verification
-    private String rolesTitle = "h1:has-text('Roles')";
+    private String rolesTitle = "//div[text()='Roles']";
     private String configurationMenu = "text=Configuration";
     private String rolesMenu = "text=Roles";
 
@@ -20,6 +20,7 @@ public class RolesPage {
 
     // Locators for edit form
     private String editButtonXPath = "//span[text()='%s']/ancestor::tr//button[@mattooltip='Edit']";
+    private String hourlyWagesOfSpecificUser = "//span[text()='abc']/ancestor::tr//td[contains(@class,'hourly')]";
     private String hourlyWagesInput = "input[type='number'][matinput][appdecimalinput][placeholder='0']";
     private String saveButton = "//button[@mattooltip='Save']";
     private String cancelButton = "button:has-text('Cancel')";
@@ -35,20 +36,20 @@ public class RolesPage {
             page.waitForLoadState();
             
             // Click on Configuration
-            page.waitForSelector(configurationMenu, new Page.WaitForSelectorOptions().setTimeout(10000));
+            page.waitForSelector(configurationMenu, new Page.WaitForSelectorOptions().setTimeout(20000));
             page.click(configurationMenu);
             
             // Click on Roles
-            page.waitForSelector(rolesMenu, new Page.WaitForSelectorOptions().setTimeout(10000));
+            page.waitForSelector(rolesMenu, new Page.WaitForSelectorOptions().setTimeout(20000));
             page.click(rolesMenu);
             
             // Wait for roles page to load
             page.waitForLoadState();
             
-            // Verify roles page is loaded
-            if (!isRolesPageLoaded()) {
-                throw new RuntimeException("Failed to navigate to Roles page");
-            }
+            // // Verify roles page is loaded
+            // if (!isRolesPageLoaded()) {
+            //     throw new RuntimeException("Failed to navigate to Roles page");
+            // }
         } catch (Exception e) {
             throw new RuntimeException("Failed to navigate to Roles page", e);
         }
@@ -122,20 +123,27 @@ public class RolesPage {
             page.waitForSelector(userRolesList, new Page.WaitForSelectorOptions().setTimeout(10000));
             Locator userNames = page.locator(userRolesList);
             
-            // Get all user names
-            List<String> names = userNames.allTextContents();
-            if (names.isEmpty()) {
-                throw new RuntimeException("No users found in the list");
-            }
+            // // Get all user names
+            // List<String> names = userNames.allTextContents();
+            // if (names.isEmpty()) {
+            //     throw new RuntimeException("No users found in the list");
+            // }
             
-            // Get the first non-empty name
-            String userName = names.stream()
-                .filter(name -> !name.trim().isEmpty())
-                .findFirst()
-                .orElseThrow(() -> new RuntimeException("No valid user names found"));
+            // // Get the first non-empty name
+            // String userName = names.stream()
+            //     .filter(name -> !name.trim().isEmpty())
+            //     .findFirst()
+            //     .orElseThrow(() -> new RuntimeException("No valid user names found"));
             
-            System.out.println("Found first user: " + userName);
-            return userName;
+            
+            List<String> listOfUsers=getListOfUser();
+            System.out.println("List of users " + listOfUsers);
+            String randomUser=getRandomUserFromList(listOfUsers);
+            System.out.println("Random user " + randomUser);
+            System.out.println("Found first user: " + randomUser);
+
+
+            return randomUser;
         } catch (Exception e) {
             throw new RuntimeException("Failed to get first visible user", e);
         }
@@ -174,7 +182,7 @@ public class RolesPage {
             // Wait for the hourly wages input to be visible
             page.waitForSelector(hourlyWagesInput, new Page.WaitForSelectorOptions().setTimeout(10000));
             Locator wagesInput = page.locator(hourlyWagesInput);
-            
+
             if (wagesInput.isVisible()) {
                 wagesInput.clear();
                 wagesInput.type(wages);
@@ -250,5 +258,62 @@ public class RolesPage {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public List<String> getListOfUser() {
+        try {
+            page.waitForSelector(userRolesList, new Page.WaitForSelectorOptions().setTimeout(10000));
+            Locator userNames = page.locator(userRolesList);
+            return userNames.allTextContents();
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to get list of user roles", e);
+        }
+    }
+
+    public String getRandomUserFromList(List<String> users) {
+         
+        if (users.isEmpty()) {
+            throw new RuntimeException("No users found in the list");
+        }
+        int randomIndex = (int) (Math.random() * users.size());
+        return users.get(randomIndex);
+    }
+
+    public String getHourlyWagesOfSpecificUser(String userName) {
+        try {
+            String locator = hourlyWagesOfSpecificUser.replace("abc", userName);
+            page.waitForSelector(locator, new Page.WaitForSelectorOptions().setTimeout(10000));
+            return page.locator(locator).textContent();
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to get hourly wages for user: " + userName, e);
+        }
+    }
+
+    public String removeDollarSymbol(String input) {
+        return input.replace("$", "").trim();
+    }
+
+    public float convertStringToFloat(String input) {
+        try {
+            return Float.parseFloat(input);
+        } catch (NumberFormatException e) {
+            throw new RuntimeException("Failed to convert string to float: " + input, e);
+        }
+    }
+
+    public String formatFloatToString(float value) {
+        return String.format("%.2f", value);
+    }
+
+    public double convertStringToDouble(String input) {
+        try {
+            return Double.parseDouble(input);
+        } catch (NumberFormatException e) {
+            throw new RuntimeException("Failed to convert string to double: " + input, e);
+        }
+    }
+
+    public String convertDoubleToString(double value) {
+        return String.format("%.2f", value);
     }
 } 

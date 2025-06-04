@@ -1,7 +1,8 @@
 package com.tonic.stepDefinitions;
 
+import com.tonic.pageObjects.web.LoginPage;
 import com.tonic.pageObjects.web.RolesPage;
-import com.tonic.utils.DriverFactory;
+import com.tonic.factory.PlaywrightFactory;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
@@ -12,12 +13,17 @@ public class RolesStepDef {
     private RolesPage rolesPage;
     private String userName;
     private String hourlyWages;
+    private LoginPage loginPage;
+    private String hourlyWagesWithoutDollar;
+    private String updatedHourlyWages;
+    private double incrementValue;
+    private double hourlyWagesDouble;
 
     public RolesStepDef() {
-        this.rolesPage = new RolesPage(DriverFactory.getPage());
+        this.rolesPage = new RolesPage(PlaywrightFactory.getPage());
     }
 
-    @Given("I am on the Roles page")
+    @And("I am on the Roles page")
     public void iAmOnTheRolesPage() {
         rolesPage.navigateToRoles();
         Assert.assertTrue("Roles page should be loaded", rolesPage.isRolesPageLoaded());
@@ -35,10 +41,23 @@ public class RolesStepDef {
         Assert.assertTrue("Edit form should be visible", rolesPage.isEditFormVisible());
     }
 
-    @And("I update the hourly wages to {string}")
-    public void iUpdateTheHourlyWages(String wages) {
-        this.hourlyWages = wages;
-        rolesPage.setHourlyWages(wages);
+    @And("get the current hourly wages of specific user")
+    public void  getTheCurrentHourlyWagesOfSpecificUser() {
+        String hourlyWages=rolesPage.getHourlyWagesOfSpecificUser(userName);
+        System.out.println("Hourly wages input " + hourlyWages);
+        hourlyWagesWithoutDollar=rolesPage.removeDollarSymbol(hourlyWages);
+        System.out.println("Hourly wages input without dollar " + hourlyWagesWithoutDollar);
+        hourlyWagesDouble =rolesPage.convertStringToDouble(hourlyWagesWithoutDollar);
+        System.out.println("Hourly wages input without dollar in Double " + hourlyWagesDouble);
+        incrementValue = hourlyWagesDouble+1 ;
+        System.out.println("Increment Value " + incrementValue);
+        updatedHourlyWages=rolesPage.convertDoubleToString(incrementValue);
+
+    }
+
+    @And("User increasing the hourly wages Amount")
+    public void UserIncreasingTheHourlyWagesAmount() {
+        rolesPage.setHourlyWages(updatedHourlyWages);
     }
 
     @And("I save the changes")
@@ -51,4 +70,16 @@ public class RolesStepDef {
         // Verify the edit form is no longer visible
         Assert.assertFalse("Edit form should not be visible after saving", rolesPage.isEditFormVisible());
     }
-} 
+
+
+    @And("get the updated hourly wages of specific user")
+    public void getTheUpdatedHourlyWagesOfSpecificUser() {
+        String updatedHourlyWage=rolesPage.getHourlyWagesOfSpecificUser(userName);
+        System.out.println("Hourly wages input " + hourlyWages);
+       String updatedHourlyWagesWithoutDollar=rolesPage.removeDollarSymbol(updatedHourlyWage);
+        System.out.println("Hourly wages input without dollar " + updatedHourlyWagesWithoutDollar);
+        double updatedHourlyWagesDouble =rolesPage.convertStringToDouble(updatedHourlyWagesWithoutDollar);
+        System.out.println("Hourly wages input without dollar in Double " + updatedHourlyWagesDouble);
+        Assert.assertTrue("Updated value should be Greater than old wages", hourlyWagesDouble < updatedHourlyWagesDouble);
+    }
+}
