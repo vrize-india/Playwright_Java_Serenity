@@ -1,6 +1,5 @@
 package com.tonic.stepDefinitions.web;
 
-import com.tonic.factory.PlaywrightFactory;
 import com.tonic.listeners.JiraListener;
 import com.tonic.pageObjects.web.LoginPage;
 import com.tonic.pageObjects.web.AdminDashboardPage;
@@ -17,7 +16,7 @@ import java.util.Map;
 
 @Listeners(JiraListener.class)
 @JiraPolicy(logTicketReady =false)
-public class RolesCopyModalSteps {
+public class TONIC4797Steps {
     private Page page;
     private LoginPage loginPage;
     private AdminDashboardPage adminDashboardPage;

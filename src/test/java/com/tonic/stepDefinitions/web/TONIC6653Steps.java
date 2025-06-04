@@ -8,7 +8,7 @@ import com.microsoft.playwright.Page;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
 
-public class DuplicateRolesSteps {
+public class TONIC6653Steps {
     private Page page;
     private LoginPage loginPage;
     private AdminDashboardPage adminDashboardPage;

@@ -10,7 +10,7 @@ import org.testng.annotations.Listeners;
 
 @Listeners(JiraListener.class)
 @JiraPolicy(logTicketReady =false)
-public class AttendanceDetailReportSteps {
+public class TONIC11579Steps {
     private LoginPage loginPage;
     private DashboardPage dashboardPage;
     private AttendancePage attendancePage;
