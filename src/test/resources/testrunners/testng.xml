@@ -2,7 +2,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="Tonic BOH Test Suite" verbose="1">
-	<test name="Edit User Role Test">
+	<listeners>
+		<listener class-name="com.tonic.listeners.ExtentReportListener" />
+		<listener class-name="io.qameta.allure.testng.AllureTestNg" />
+		<listener class-name="com.tonic.listeners.AllureListener" />
+	</listeners>
+
+	<test name="TestNG Tests">
 		<parameter name="browser" value="chrome"/>
 		<classes>
 			<class name="com.tonic.healthCheckTestngTests.web.RolesTest">
@@ -10,6 +16,13 @@
 					<include name="editUserRoleHourlyWages"/>
 				</methods>
 			</class>
+		</classes>
+	</test>
+
+	<test name="Cucumber Tests">
+		<parameter name="browser" value="chrome"/>
+		<classes>
+			<class name="com.tonic.runners.TestRunner"/>
 		</classes>
 	</test>
 </suite>
