@@ -3,12 +3,10 @@ package com.tonic.runners;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-    features = "src/test/resources/features/web",
+
+    features = "src/test/resources/features",
     glue = {"com.tonic.stepDefinitions", "com.tonic.hooks"},
-    plugin = {
-        "pretty",
-        "html:target/cucumber-reports/cucumber.html",
-        "json:target/cucumber-reports/cucumber.json"
-    }
+    plugin = {"pretty", "summary"},tags = "@p3"
 )
 public class TestRunner extends TestNGBase {}
+

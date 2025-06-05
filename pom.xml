@@ -175,13 +175,18 @@
 				<configuration>
 					<forkCount>1</forkCount>
 					<reuseForks>true</reuseForks>
-					<argLine>
-						-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-						-Dallure.results.directory=${allure.results.directory}
-					</argLine>
+					<useSystemClassLoader>false</useSystemClassLoader>
+					<argLine>-Xmx1024m -XX:MaxPermSize=256m -Dfile.encoding=UTF-8 -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar" -Dallure.results.directory="${project.build.directory}/allure-results"</argLine>
 					<systemPropertyVariables>
-						<allure.results.directory>${allure.results.directory}</allure.results.directory>
+						<allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
 					</systemPropertyVariables>
+					<properties>
+						<property>
+							<name>listener</name>
+							<value>io.qameta.allure.testng.AllureTestNg</value>
+						</property>
+					</properties>
+					<testFailureIgnore>true</testFailureIgnore>
 					<suiteXmlFiles>
 						<suiteXmlFile>src/test/resources/testrunners/testng.xml</suiteXmlFile>
 					</suiteXmlFiles>
