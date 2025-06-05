@@ -12,5 +12,19 @@ Feature: Roles Management
     And I click edit for the user
     And User increasing the hourly wages Amount
     And I save the changes
-    Then the changes should be saved successfully
+    And the changes should be saved successfully
     And get the updated hourly wages of specific user
+    Then validate hourly wages increased after updated
+
+  @TONIC-7229 @labor
+  Scenario: Edit user role hourly wages
+    Given user login "https://admin.test.ordyx.com/login" with credentials: "Prasanna@vrize.com" and "Password@123"
+    And I am on the Roles page
+    When I find a user in the roles list
+    And get the current hourly wages of specific user
+    And I click edit for the user
+    And User decreasing the hourly wages Amount
+    And I save the changes
+    And the changes should be saved successfully
+    And get the updated hourly wages of specific user
+    Then validate hourly wages decreased after updated

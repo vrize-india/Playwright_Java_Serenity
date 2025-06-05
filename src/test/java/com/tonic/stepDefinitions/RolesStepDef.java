@@ -3,6 +3,7 @@ package com.tonic.stepDefinitions;
 import com.tonic.pageObjects.web.LoginPage;
 import com.tonic.pageObjects.web.RolesPage;
 import com.tonic.factory.PlaywrightFactory;
+import com.tonic.utils.ApplicationUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
@@ -17,8 +18,11 @@ public class RolesStepDef {
     private String hourlyWagesWithoutDollar;
     private String updatedHourlyWages;
     private double incrementValue;
+    private double decrementValue;
     private double hourlyWagesDouble;
-
+    private double updatedHourlyWagesDouble;
+    private String decrementValueHourlyWages;
+    ApplicationUtils apputils = new ApplicationUtils();
     public RolesStepDef() {
         this.rolesPage = new RolesPage(PlaywrightFactory.getPage());
     }
@@ -45,19 +49,28 @@ public class RolesStepDef {
     public void  getTheCurrentHourlyWagesOfSpecificUser() {
         String hourlyWages=rolesPage.getHourlyWagesOfSpecificUser(userName);
         System.out.println("Hourly wages input " + hourlyWages);
-        hourlyWagesWithoutDollar=rolesPage.removeDollarSymbol(hourlyWages);
+        hourlyWagesWithoutDollar=apputils.removeDollarSymbol(hourlyWages);
         System.out.println("Hourly wages input without dollar " + hourlyWagesWithoutDollar);
-        hourlyWagesDouble =rolesPage.convertStringToDouble(hourlyWagesWithoutDollar);
+        hourlyWagesDouble =apputils.convertStringToDouble(hourlyWagesWithoutDollar);
         System.out.println("Hourly wages input without dollar in Double " + hourlyWagesDouble);
         incrementValue = hourlyWagesDouble+1 ;
         System.out.println("Increment Value " + incrementValue);
-        updatedHourlyWages=rolesPage.convertDoubleToString(incrementValue);
+        updatedHourlyWages=apputils.convertDoubleToString(incrementValue);
+
+        decrementValue = hourlyWagesDouble-1 ;
+        System.out.println("Decrease Value " + decrementValue);
+        decrementValueHourlyWages=apputils.convertDoubleToString(decrementValue);
 
     }
 
     @And("User increasing the hourly wages Amount")
     public void UserIncreasingTheHourlyWagesAmount() {
         rolesPage.setHourlyWages(updatedHourlyWages);
+    }
+
+    @And("User decreasing the hourly wages Amount")
+    public void userDecreasingTheHourlyWagesAmount() {
+        rolesPage.setHourlyWages(decrementValueHourlyWages);
     }
 
     @And("I save the changes")
@@ -76,10 +89,23 @@ public class RolesStepDef {
     public void getTheUpdatedHourlyWagesOfSpecificUser() {
         String updatedHourlyWage=rolesPage.getHourlyWagesOfSpecificUser(userName);
         System.out.println("Hourly wages input " + hourlyWages);
-       String updatedHourlyWagesWithoutDollar=rolesPage.removeDollarSymbol(updatedHourlyWage);
+       String updatedHourlyWagesWithoutDollar=apputils.removeDollarSymbol(updatedHourlyWage);
         System.out.println("Hourly wages input without dollar " + updatedHourlyWagesWithoutDollar);
-        double updatedHourlyWagesDouble =rolesPage.convertStringToDouble(updatedHourlyWagesWithoutDollar);
+        updatedHourlyWagesDouble =apputils.convertStringToDouble(updatedHourlyWagesWithoutDollar);
         System.out.println("Hourly wages input without dollar in Double " + updatedHourlyWagesDouble);
+
+    }
+
+    @Then("validate hourly wages increased after updated")
+    public void validateHourlyWagesIncreasedAfterUpdated() {
         Assert.assertTrue("Updated value should be Greater than old wages", hourlyWagesDouble < updatedHourlyWagesDouble);
+    }
+
+
+
+
+    @Then("validate hourly wages decreased after updated")
+    public void validateHourlyWagesDecreasedAfterUpdated() {
+        Assert.assertTrue("Updated value should be Greater than old wages", hourlyWagesDouble > updatedHourlyWagesDouble);
     }
 }
