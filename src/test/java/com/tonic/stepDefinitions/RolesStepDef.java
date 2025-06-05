@@ -88,7 +88,6 @@ public class RolesStepDef {
     @And("get the updated hourly wages of specific user")
     public void getTheUpdatedHourlyWagesOfSpecificUser() {
         String updatedHourlyWage=rolesPage.getHourlyWagesOfSpecificUser(userName);
-        System.out.println("Hourly wages input " + hourlyWages);
        String updatedHourlyWagesWithoutDollar=apputils.removeDollarSymbol(updatedHourlyWage);
         System.out.println("Hourly wages input without dollar " + updatedHourlyWagesWithoutDollar);
         updatedHourlyWagesDouble =apputils.convertStringToDouble(updatedHourlyWagesWithoutDollar);

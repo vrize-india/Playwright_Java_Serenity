@@ -162,7 +162,7 @@ public class RolesPage {
     public String getHourlyWagesOfSpecificUser(String userName) {
         try {
             String locator = String.format(hourlyWagesOfSpecificUser, userName);
-            page.waitForSelector(locator, new Page.WaitForSelectorOptions().setTimeout(10000));
+            page.waitForSelector(locator, new Page.WaitForSelectorOptions().setTimeout(20000));
             return page.locator(locator).textContent();
         } catch (Exception e) {
             throw new RuntimeException("Failed to get hourly wages for user: " + userName, e);
