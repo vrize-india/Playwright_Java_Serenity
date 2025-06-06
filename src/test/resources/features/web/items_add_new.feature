@@ -1,3 +1,4 @@
+@regression
 Feature: Add New Item functionality in Items screen
   As a user with appropriate permissions
   I want to add a new item via the Items screen

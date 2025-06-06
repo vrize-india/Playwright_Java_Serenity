@@ -1,3 +1,4 @@
+@regression
 Feature: Terminal Navigation
   As a user
   I want to navigate to the terminals page

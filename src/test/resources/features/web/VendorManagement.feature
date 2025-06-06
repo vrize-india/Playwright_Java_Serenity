@@ -1,4 +1,4 @@
-@inventory
+@inventory @regression
 Feature: Vendor Management in BOH System
   As a BOH system user
   I want to manage vendors

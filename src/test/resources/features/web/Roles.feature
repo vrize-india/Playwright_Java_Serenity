@@ -1,9 +1,10 @@
+@labor @regression
 Feature: Roles Management
   As a system administrator
   I want to manage user roles and their hourly wages
   So that I can maintain accurate compensation information
 
-  @TONIC-7228 @labor @p3
+  @TONIC-7228  @p3
   Scenario: Hourly wages - Changing the hourly wage amount
     Given user login "https://admin.test.ordyx.com/login" with credentials: "Prasanna@vrize.com" and "Password@123"
     And I am on the Roles page
@@ -16,7 +17,7 @@ Feature: Roles Management
     And get the updated hourly wages of specific user
     Then validate hourly wages increased after updated
 
-  @TONIC-7229 @labor @p3
+  @TONIC-7229 @p3
   Scenario: Hourly wages - Decreasing the hourly wage amount
     Given user login "https://admin.test.ordyx.com/login" with credentials: "Prasanna@vrize.com" and "Password@123"
     And I am on the Roles page

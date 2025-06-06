@@ -1,3 +1,4 @@
+@regression
 Feature: Login
   As a user
   I want to login to the application
