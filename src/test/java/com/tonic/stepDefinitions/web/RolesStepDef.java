@@ -1,10 +1,9 @@
-package com.tonic.stepDefinitions;
+package com.tonic.stepDefinitions.web;
 
 import com.tonic.pageObjects.web.LoginPage;
 import com.tonic.pageObjects.web.RolesPage;
 import com.tonic.factory.PlaywrightFactory;
 import com.tonic.utils.ApplicationUtils;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.And;
