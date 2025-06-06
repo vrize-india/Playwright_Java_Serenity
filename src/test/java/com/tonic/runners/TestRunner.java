@@ -6,7 +6,8 @@ import io.cucumber.testng.CucumberOptions;
 
     features = "src/test/resources/features",
     glue = {"com.tonic.stepDefinitions", "com.tonic.hooks"},
-    plugin = {"pretty", "summary"},tags = "@inventory"
+    plugin = {"pretty", "summary", "html:target/cucumber-report.html", "json:target/cucumber-report.json"},
+    tags = "@inventory"
 )
 public class TestRunner extends TestNGBase {}
 
