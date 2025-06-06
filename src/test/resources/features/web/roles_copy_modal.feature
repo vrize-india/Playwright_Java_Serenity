@@ -1,3 +1,4 @@
+@regression
 Feature: Roles Copy Modal
   As a user
   I want to copy a role and see the correct modal fields

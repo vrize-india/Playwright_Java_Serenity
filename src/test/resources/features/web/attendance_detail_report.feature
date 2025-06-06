@@ -1,3 +1,4 @@
+@regression
 Feature: Attendance Detail Report
 
   @DemoTest @TONIC11579
