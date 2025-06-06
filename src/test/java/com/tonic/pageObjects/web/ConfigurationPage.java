@@ -12,6 +12,7 @@ public class ConfigurationPage {
     private String storeNameField = "text=Store Name";
     private String inheritPermissionsField = "text=Inherit Permissions From";
     private String selectCombobox = "[role=combobox],select";
+    private String menuconfiguration = "text=Menu Configuration";
 
     public ConfigurationPage(Page page) {
         this.page = page;
@@ -27,6 +28,10 @@ public class ConfigurationPage {
 
     public void goToRoles() {
         page.locator(rolesTab).click();
+    }
+
+    public void goTomenuconfiguration() {
+        page.locator(menuconfiguration).click();
     }
 
     public void openFirstRolePermissionsModal() {
