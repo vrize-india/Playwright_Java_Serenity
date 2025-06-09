@@ -14,7 +14,7 @@
 # Build and output directories
 /build/
 /out/
-/target/
+#/target/
 /appium/
 /.idea/
 /src/main/resources/app/
@@ -37,4 +37,3 @@ Thumbs.db
 
 # Git should track this file
 !.gitignore
-/target/
