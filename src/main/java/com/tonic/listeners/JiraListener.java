@@ -8,6 +8,20 @@ import org.testng.ITestResult;
 import com.tonic.utils.JiraPolicy;
 import com.tonic.utils.JiraServiceProvider;
 
+/**
+ * TestNG listener that automatically logs bugs to JIRA for test failures based on {@link JiraPolicy} annotation.
+ * <p>
+ * If a test method is annotated with {@code @JiraPolicy(logTicketReady = true)}, and the test fails,
+ * this listener will use {@link JiraServiceProvider} to create a JIRA issue with details such as
+ * the exception message and full stack trace.
+ * </p>
+ *
+ * This integration helps in tracking regression or flaky issues directly in JIRA,
+ * streamlining QA workflows in continuous testing environments.
+ *
+ * @author Gaurav Purwar
+ */
+
 public class JiraListener implements ITestListener {
 
     @Override

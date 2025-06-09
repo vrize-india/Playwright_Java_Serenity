@@ -17,6 +17,7 @@
 /target/
 /appium/
 /.idea/
+/src/main/resources/app/
 
 # Allure Results
 target/allure-results/

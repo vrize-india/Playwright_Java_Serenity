@@ -18,6 +18,18 @@ import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import static com.tonic.factory.PlaywrightFactory.takeScreenshot;
 
+/**
+ * TestNG listener implementation for generating rich HTML test reports using ExtentReports.
+ * <p>
+ * Captures test execution lifecycle events, logs pass/fail/skip statuses,
+ * and attaches Playwright screenshots in Base64 format for visual context.
+ * The report includes metadata like OS, Java version, team info, and custom test suite details.
+ * </p>
+ *
+ * Report is saved to the `/build` directory under the project root with a unique filename.
+ *
+ * @author Gaurav Purwar
+ */
 public class ExtentReportListener implements ITestListener {
 
 	// Use absolute paths to ensure the directory is created properly

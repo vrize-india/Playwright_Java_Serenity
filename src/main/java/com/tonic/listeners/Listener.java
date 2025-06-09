@@ -12,6 +12,14 @@ import java.util.Arrays;
 
 import static com.tonic.utils.FrameworkLogger.log;
 
+/**
+ * TestNG Listener class that integrates with ExtentReports and a custom logging utility to enhance test reporting.
+ * This listener combines structured reporting with real-time logging and failure diagnostics,
+ * improving test traceability and debugging efficiency.
+ *
+ * @author Gaurav Purwar
+ */
+
 public class Listener implements ITestListener, ISuiteListener {
 
     @Override

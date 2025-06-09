@@ -16,6 +16,11 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
 import com.microsoft.playwright.Tracing;
 
+/**
+ * Factory class to initialize and manage Playwright browser instances, contexts, and pages using ThreadLocal for parallel execution.
+ *
+ * @author Gaurav Purwar
+ */
 public class PlaywrightFactory {
 
 	private Properties prop;

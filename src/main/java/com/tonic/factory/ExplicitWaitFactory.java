@@ -9,6 +9,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+/**
+ * Provides explicit wait strategies for locating web elements based on various conditions.
+ *
+ * @author Gaurav Purwar
+ */
+
 public final class ExplicitWaitFactory {
 
     private ExplicitWaitFactory() {}

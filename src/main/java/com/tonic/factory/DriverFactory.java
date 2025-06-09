@@ -12,6 +12,11 @@ import org.openqa.selenium.MutableCapabilities;
 
 import java.net.URI;
 
+/**
+ * Factory class to create and return AppiumDriver instances based on device type and run mode (local or remote).
+ *
+ * @author Gaurav Purwar
+ */
 
 public class DriverFactory {
 

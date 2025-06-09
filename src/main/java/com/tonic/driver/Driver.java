@@ -6,6 +6,11 @@ import io.appium.java_client.AppiumDriver;
 import java.net.MalformedURLException;
 import java.util.Objects;
 
+/**
+ * Manages ThreadLocal AppiumDriver instances for parallel test execution.
+ *
+ * @author Gaurav Purwar
+ */
 public class Driver {
 
     private Driver() {

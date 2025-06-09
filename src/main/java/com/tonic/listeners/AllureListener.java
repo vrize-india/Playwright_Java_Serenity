@@ -17,6 +17,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+/**
+ * TestNG listener implementation for integrating Allure reporting with Playwright.
+ * Captures screenshots, browser logs, environment details, and page source for enhanced test reporting.
+ *
+ * @author Gaurav Purwar
+ */
+
 public class AllureListener implements ITestListener {
     
     private static final String ALLURE_RESULTS_DIR = System.getProperty("allure.results.directory", "target/allure-results");
